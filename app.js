@@ -23,4 +23,5 @@ app.use(morgan('tiny'))
 app.use(route());
 
 
-app.listen(PORT, () => console.log(`server has started on: http://localhost:${PORT}`))
+
+app.listen(PORT, '0.0.0.0', () => console.log(`server has started on: http://localhost:${PORT}`))
