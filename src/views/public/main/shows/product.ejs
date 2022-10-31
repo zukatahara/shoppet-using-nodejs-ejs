@@ -1,0 +1,27 @@
+<section class="shop" id="shop">
+  <h1 class="heading">our <span> products </span></h1>
+
+  <div class="box-container">
+    <% if (allProducts) { %> <% for( let i = 0; i < allProducts.length; i++ )
+    {%>
+    <div class="box">
+      <div class="icons">
+        <a href="#" class="fas fa-shopping-cart"></a>
+        <a href="#" class="fas fa-heart"></a>
+        <a href="#" class="fas fa-eye"></a>
+      </div>
+      <a href="./product/<%= allProducts[i].id %>">
+        <div>
+          <div class="image">
+            <img src="image/<%= allProducts[i].image %>" alt="" />
+          </div>
+          <div class="content">
+            <h3><%= allProducts[i].name %></h3>
+            <div class="amount">$<%= allProducts[i].price %></div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <% } %> <% } %>
+  </div>
+</section>

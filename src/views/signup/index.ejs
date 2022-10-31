@@ -1,0 +1,58 @@
+<%- include('./../admin/header'); -%> <% if(result) { %>
+<!-- <h2><%= result[0]["_id"] %></h2> -->
+<%} %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <form action="<%= result ?"/admin/update":"./add"%>" method="POST">
+        <legend class="bg-red">Form title</legend>
+        <input type="hidden" name="id" value="<%= result ?result[0]["_id"]:
+        ""%>" >
+        <div class="form-group">
+          <label for="">User name</label>
+          <input type="text" class="form-control" name="username"
+          placeholder="User name" value="<%= result ? result[0]["username"]:
+          ""%>" />
+        </div>
+        <div class="form-group">
+          <label for="">Password</label>
+          <input type="text" class="form-control" name="password"
+          placeholder="Password" value="<%= result ? result[0]["password"]: ""
+          %>" />
+        </div>
+        <div class="form-group">
+          <label for="">First name</label>
+          <input type="text" class="form-control" name="firstname"
+          placeholder="First name" value="<%= result ? result[0]["firstname"]:
+          "" %>" />
+        </div>
+        <div class="form-group">
+          <label for="">Last name</label>
+          <input type="text" class="form-control" name="lastname"
+          placeholder="Last name" value="<%= result ? result[0]["lastname"]: ""
+          %>" />
+        </div>
+        <div class="form-group">
+          <div class="radio">
+            <label>
+              <input type="radio" name="gender" id="input" value="Male" <%=
+              result && result[0]["gender"] ==='Male' ? "checked" : "" %>/> Male
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="gender" id="input" value="Female" <%=
+              result && result[0]["gender"] ==='Female' ? "checked" : "" %>/>
+              Female
+            </label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">
+          <%= result ? "Update" : "Add" %>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<%- include('./../admin/footer'); -%>
