@@ -49,13 +49,11 @@ class ProductServices {
 
     //delete Product
     deleteOneProduct = async (id) => {
-        try {
-            const result = await productModel.findByIdAndDelete(id);
-            // console.log('result', result)
-            return result
-        } catch (error) {
-            console.log('error', error)
+        const result = await productModel.findByIdAndDelete(id);
+        if (!result) {
+            throw Error;
         }
+        return result;
 
     }
 }

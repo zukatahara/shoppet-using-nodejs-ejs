@@ -1,5 +1,5 @@
 const ProductServices = require("../../../services/productServices");
-const fs = require('./../../../middleware/fs');
+const deleteImage = require('./../../../middleware/fs');
 class ProductController {
     //render home page
     getHomePage = async (req, res, next) => {
@@ -61,7 +61,7 @@ class ProductController {
         if (result) {
             if (req.file) {
                 let { image } = result;
-                await fs(image);
+                await deleteImage(image);
             }
         }
         res.redirect('/admin/product')
@@ -69,20 +69,18 @@ class ProductController {
     //delete Product
     deleteProduct = async (req, res, next) => {
         try {
-            let { id } = req.params
+            const { id } = req.params;
             const productServices = new ProductServices();
             const result = await productServices.deleteOneProduct(id);
-            // console.log(result)
-            if (result) {
-                let { image } = result;
-                // console.log('image', image)
-                await fs(image)
+            if (!result) {
+                throw Error;
             }
-            res.redirect('/admin/product')
+            const { image } = result;
+            deleteImage(image);
+            res.redirect('/admin/product');
         } catch (error) {
             console.log(`loi khi delete`)
         }
-
     }
 }
 module.exports = ProductController;

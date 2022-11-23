@@ -1,15 +1,9 @@
 const fs = require('fs');
 
-const fsResult = async (value) => {
-    try {
-
-        const path = `public/image/${value}`;
-        const result = await fs.unlinkSync(path);
-        if (!result)
-            // console.log(`Image deleted! `)
-        return result
-    } catch (error) {
-        res.send('co loi')
+const deleteImage = async (value) => {
+    const path = `public/image/${value}`;
+    if (fs.existsSync(path)) {
+        await fs.unlinkSync(path);
     }
 }
-module.exports = fsResult;
+module.exports = deleteImage;
