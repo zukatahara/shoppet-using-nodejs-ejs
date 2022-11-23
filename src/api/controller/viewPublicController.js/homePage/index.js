@@ -6,6 +6,7 @@ class indexHomePage {
         const allProducts = await productServices.getAllProducts();
         // console.log(allProducts)
         res.render('public/index', { allProducts });
+        // res.send('aa')
     }
 }
 
