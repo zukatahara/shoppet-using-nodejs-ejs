@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkout</title>
+    <link rel="stylesheet" href="./../../css/all.css">
+    <link rel="stylesheet" href="./../../css/bootstrap.css">
+    <link rel="stylesheet" href="./../../css/product-detail.css">
+</head>
+
+<body>
+    <!-- checkout -->
+    <%-  include('./header') %>
+    <section id="checkout">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mg-auto">
+                    <div class="content">
+                        <form action="" method="post">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="receiver">
+                            <label for="floatingInput">Tên người nhận</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="phone">
+                            <label for="floatingPassword">Số điện thoại</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="address">
+                            <label for="floatingInput">Địa chỉ nhận</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingPassword" placeholder="Password" name="email">
+                            <label for="floatingPassword">Email (Không bắt buộc)</label>
+                        </div>
+                        <h4>Hình thức thanh toán</h4>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDisabled"
+                                id="flexRadioCheckedDisabled" checked disabled>
+                            <label class="form-check-label" for="flexRadioCheckedDisabled">
+                                Trả bằng tiền mặt
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="text-align: center;">Hoàn thành</button>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- /checkout -->
+    <%-  include('./footer') %>
+</body>
+
+</html>

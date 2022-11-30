@@ -335,9 +335,10 @@ section {
   flex-wrap: wrap-reverse;
 }
 
-.shop .box-container {
+.box-container {
   text-align: center;
-  /* width: 1200px; */
+  width: 1200px;
+  margin: auto;
   display: flex;
   /* display: grid; */
   /* grid-template-columns: auto auto auto auto; */
@@ -590,6 +591,7 @@ section {
   color: #e67e22;
 }
 
+/* ///////////////////// */
 @media (max-width: 991px) {
   html {
     font-size: 55%;
@@ -612,6 +614,7 @@ section {
     font-size: 4.5rem;
   }
 }
+
 @media (max-width: 768px) {
   #menu-btn {
     display: inline-block;

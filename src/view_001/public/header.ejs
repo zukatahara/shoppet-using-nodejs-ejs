@@ -1,0 +1,90 @@
+<section id="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-sm-12 ">
+                <div class="logo">
+                    <a href="/">
+                        <i class="fa-duotone fa-cat"></i>
+                    </a>
+
+                </div>
+            </div>
+            <div class="col-lg-8 col-6">
+                <ul class="nav menu ">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">about</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">plan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">contact</a>
+                    </li>
+                </ul>
+                <div class="icon-menu-moblie">
+                    <button type="button" class="btn btn-primary" id="menu-mobile">
+                        <i class="fa-light fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-2 col-6">
+                <div class="customer" style="display:flex ;">
+
+                    <div class="user">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-light fa-user"></i>
+
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <% if (userId === null ) { %>
+                                <li><a class="dropdown-item" href="/user/login">Đăng nhập</a></li>
+                                <li><a class="dropdown-item" href="/user/register">Đăng kí</a></li>
+                                <% }  else { %>
+                                <li><a class="dropdown-item" href="/order">Đơn hàng</a></li>
+                                <li><a class="dropdown-item" href="/user/logout">Đăng xuất</a></li>
+                                <% } %>
+
+
+
+                            </ul>
+                        </div>
+
+
+                        <!-- <button type="button">
+                            <i class="fa-light fa-user"></i>
+                        </button>
+                        <ul>
+                            <li>a</li>
+                            <li>b</li>
+                        </ul> -->
+                    </div>
+
+                    <div class="cart">
+                        <a href="/cart">
+                            <button type="button">
+                                <i class="fa-light fa-cart-shopping"></i>
+                                <span
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    <%= amount.length %>
+                                    <span class="visually-hidden">unread messages</span>
+                                </span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

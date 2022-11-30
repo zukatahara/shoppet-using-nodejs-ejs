@@ -1,0 +1,107 @@
+<section id="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <p>Copyright &#169; Shop pet</p>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="./../../js/all.js"></script>
+<!-- <script src="./../../js/bootstrap.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+<script>
+    const iconMenuMobile = document.querySelector('#menu-mobile');
+    const menu = document.querySelector('.menu');
+    const increase = document.querySelectorAll('.increase');
+    const reduce = document.querySelectorAll('.reduce');
+    const amount = document.querySelectorAll('.amount');
+    const price = document.querySelectorAll('.box .box-2 .row-2 span');
+    const totalOneProduct = document.querySelectorAll('.box .box-2 .row-4 span');
+    const totalAllProduct = document.querySelector('.total span')
+    console.log(totalAllProduct)
+    let y = 0;
+    for (let i = 0; i < totalOneProduct.length; i++) {
+        y += +(totalOneProduct[i].innerHTML)
+        // console.log("y", y)
+        totalAllProduct.innerHTML = y
+    }
+    // ẩn/hiện menu khi ở chế độ mo-bi
+    iconMenuMobile.addEventListener('click', () => {
+        menu.classList.toggle('active');
+    })
+    // tăng/giảm số lượng sản phẩm
+    // for (let i = 0; i < increase.length; i++) {
+    //     increase[i].onclick = function () {
+    //         let x = +amount[i].innerHTML;
+    //         x += 1;
+    //         if (x > 1) {
+    //             reduce[i].style.cursor = "pointer";
+    //         }
+    //         amount[i].innerHTML = x;
+    //         console.log(x *+(price[i].innerHTML))
+    //         totalOneProduct[i].innerHTML = x *+(price[i].innerHTML)
+    //         for(let i = 0; i< totalOneProduct.length;i++){
+    //     y += +(totalOneProduct[i].innerHTML)
+    //     console.log("y" ,y)
+    // }
+    //     }
+
+
+    // }
+    // for (let i = 0; i < reduce.length; i++) {
+    //     reduce[i].onclick = function () {
+    //         let x = +amount[i].innerHTML;
+    //         if (x <= 1) {
+    //             x = 1;
+    //             reduce[i].style.cursor = "no-drop";
+    //         } else {
+    //             x -= 1;
+    //         }
+    //         amount[i].innerHTML = x;
+    //         totalOneProduct[i].innerHTML = x *+(price[i].innerHTML)
+    //     }
+    // }
+    // tổng tiền tang
+    for (let i = 0; i < increase.length; i++) {
+        increase[i].onclick = function () {
+            let x = +amount[i].innerHTML;
+            x += 1;
+            if (x > 1) {
+                reduce[i].style.cursor = "pointer";
+            }
+            amount[i].innerHTML = x;
+            console.log(x * +(price[i].innerHTML))
+            totalOneProduct[i].innerHTML = x * +(price[i].innerHTML)
+            let y = 0;
+            for (let i = 0; i < totalOneProduct.length; i++) {
+                y += +(totalOneProduct[i].innerHTML)
+                // console.log("y", y)
+                totalAllProduct.innerHTML = y
+            }
+
+        }
+    }
+    // tổng tiền giam
+    for (let i = 0; i < reduce.length; i++) {
+        reduce[i].onclick = function () {
+            let x = +amount[i].innerHTML;
+            x -= 1;
+            if (x < 1) {
+                x = 1
+            }
+            amount[i].innerHTML = x;
+            console.log(x * +(price[i].innerHTML))
+            totalOneProduct[i].innerHTML = x * +(price[i].innerHTML)
+            let y = 0;
+            for (let i = 0; i < totalOneProduct.length; i++) {
+                y += +(totalOneProduct[i].innerHTML)
+                // console.log("y", y)
+                totalAllProduct.innerHTML = y
+            }
+
+        }
+    }
+</script>

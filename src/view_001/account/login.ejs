@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./../../css/all.css">
+    <link rel="stylesheet" href="./../../css/bootstrap.css">
+    <link rel="stylesheet" href="./../../css/product-detail.css">
+</head>
+
+<body>
+    <%-  include('./../public/header') %>
+    <!-- dang nhap -->
+    <section id="login">
+        <form action="" method="post">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 mg-auto">
+                        <div class="content">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" name="username"
+                                    placeholder="name@example.com">
+                                <label for="floatingInput">Tên người nhận</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                                    name="password">
+                                <label for="floatingPassword">Mật khẩu</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="text-align: center;">Đăng nhập</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mg-auto">
+                    <div class="lost-password">
+                        <a href="#">Quên mật khẩu?</a>
+                    </div>
+                    <div style="width:100%;height:0px;border:1px solid gray"></div>
+                    <div class="create-account">
+                        <a href="/user/register">Tạo tài khoản mới</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /dang nhap -->
+    <%-  include('./../public/footer') %>
+</body>
+
+</html>

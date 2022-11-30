@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chu</title>
+    <link rel="stylesheet" href="./../../css/all.css">
+    <link rel="stylesheet" href="./../../css/bootstrap.css">
+    <link rel="stylesheet" href="./../../css/product-detail.css">
+</head>
+
+<body>
+    <%-  include('./header') %>
+    <!--giỏ hàng  -->
+    <section id="cart">
+        <!-- <%=  amount %>
+        <%=  item %> -->
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Giỏ hàng</h1>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+        <div id="status-cart">
+            <% if (item.length ===0 ) { %>
+            <div class="empty-cart">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="content">
+                                <img src="./img/mascot@2x.png" alt="" srcset="" class="empty-image">
+                                <p>Không có sản phẩm nào trong giỏ hàng của bạn.</p>
+                                <a href="/">Tiep tuc mua sam</a>
+                            </div>
+                        </div>
+                        <div class="col"></div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+
+            <div class="exist-cart">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-12">
+                            <div class="box">
+                                <div class="box-1">
+                                    <div class="row-1 row-same">Tât cả(<%= item.length %> sản phẩm)</div>
+                                    <div class="row-2 row-same">Đơn giá</div>
+                                    <div class="row-3 row-same">Số lượng</div>
+                                    <div class="row-4 row-same">Thành tiền</div>
+                                    <div class="row-5 row-same">Xóa</div>
+                                </div>
+                                <% for( let index = 0; index < item.length; index++ ) { %>
+                                <div class="box-2">
+                                    <div class="row-1 row-same">
+                                        <img src="./../../image/<%= item[index].image %> " alt="">
+                                        <p> <%= item[index].name%>
+                                        </p>
+                                    </div>
+                                    <div class="row-2 row-same">
+                                        <span><%= item[index].price %> ₫</span>
+                                    </div>
+                                    <div class="row-3 row-same">
+                                        <div>
+                                            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                <a href="./cart/<%= item[index].id %>/reduce" class="btn amount">-</a>
+
+                                                <span class="btn amount">
+                                                   
+                                                    <%= amount[index]["quantity"] %>
+                                                </span>
+                                                <a href="./cart/<%= item[index].id %>/increase" class="btn amount">+</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row-4 row-same">
+                                        <span><%= item[index].price * amount[index]["quantity"] %> </span> ₫</div>
+                                    <div class="row-5 row-same">
+                                        <a href="/cart/delete/<%= item[index].id %>" style="cursor: pointer;">
+                                            <i class="fa-light fa-trash"></i>
+
+                                        </a>
+                                    </div>
+                                </div>
+                                <% } %>
+
+
+
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="buy-cart">
+                                <div class="content">
+                                    <div class="total">
+                                        <p>Tổng tiền</p>
+                                        <span style="color: red;">0</span>&nbsp ₫
+                                    </div>
+                                    <a href="/checkout" class="btn btn-danger">Mua hàng</a>
+                                    <!-- <button type="button" class="btn btn-danger">Mua hàng</button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!--/giỏ hàng  -->
+    <%-  include('./footer') %>
+</body>
+
+</html>

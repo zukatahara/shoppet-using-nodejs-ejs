@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Product</title>
+    <link rel="stylesheet" href="./../../../css/all.css">
+    <link rel="stylesheet" href="./../../../css/bootstrap.css">
+    <link rel="stylesheet" href="./../../../css/product-detail.css">
+</head>
+
+<body>
+    <% if(result) { %>
+    <!-- <h2><%= result[0]["_id"] %></h2> -->
+    <!-- <% var name = 'quy' %> -->
+    <%} %>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <form action="<%= result ?"/admin/product/update":"/admin/product/add"%>" method="POST"
+                    enctype="multipart/form-data">
+                    <legend class="bg-red">Form title</legend>
+                    <input type="hidden" name="id" value="<%= result ? result[0]["_id"]:
+                ""%>">
+                    <!-- <h2><%= name %></h2> -->
+                    <div class="form-group">
+                        <label for="">Product name</label>
+                        <input type="text" class="form-control" name="name" placeholder="Product name" value="<%= result ? result[0]["name"]:
+                  ""%>" />
+                    </div>
+                    <div class="form-group">
+                        <label for="">Image</label>
+                        <input type="file" class="form-control" name="image" onchange="previewImage(event)" />
+                    </div>
+
+                    <img id="preview" src="./../../../image/<%= result ?result[0].image:"" %>"
+                        height="<%= result ? "90px": "" %>" />
+                    <input type="hidden" name="image" value="<%= result ? result[0]["image"]:
+                ""%>">
+                    <div class="form-group">
+                        <label for="">Price</label>
+                        <input type="text" class="form-control" name="price" placeholder="Price" value="<%= result ? result[0]["price"]:
+                  "" %>" />
+                    </div>
+                    <div class="form-group">
+                        <label for="">Inventory</label>
+                        <input type="text" class="form-control" name="inventory" placeholder="Inventory" value="<%= result ? result[0]["inventory"]: ""
+                  %>" />
+                    </div>
+                    <div class="form-group">
+                        <label for="">Category</label>
+                        <input type="text" class="form-control" name="category" placeholder="Category" value="<%= result ? result[0]["category"]: ""
+                    %>" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <%= result ? "Update" : "Add" %>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        const previewImage = e => {
+            const preview = document.getElementById('preview');
+            preview.src = URL.createObjectURL(e.target.files[0]);
+            preview.onload = () => URL.revokeObjectURL(preview.src);
+            preview.style.height = "100px";
+        };
+    </script>
+</body>
+
+</html>
