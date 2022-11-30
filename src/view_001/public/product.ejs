@@ -5,7 +5,7 @@
             <% for( let index = 0; index < products.length; index++ ) { %>
                 <div class="col-lg-3 box-list-product">
                     <a href="/product/<%= products[index].id %> ">
-                        <img src="./../../image/<%= products[index].image %>" class="rounded mx-auto d-block" alt="...">
+                        <img src="data:image/png; base64,<%= products[index].image %>" class="rounded mx-auto d-block" alt="...">
                         <div class="content">
                             <p class="product-name"><%= products[index].name %></p>
                             <span class="product-price"><%= products[index].price %></span> &nbsp; đ

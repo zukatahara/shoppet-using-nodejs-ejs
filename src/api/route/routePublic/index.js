@@ -7,6 +7,7 @@ const route = express.Router();
 module.exports = (app) => {
   app.use("/", route);
   route.get("/", new publicView().getHomePage);
+  //product details
   route.get("/product/:id", new publicView().getProductDetailPage);
   //checkout
   route.get("/checkout", new publicView().getCheckoutPage);

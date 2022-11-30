@@ -3,7 +3,7 @@ const orderServices = require("../../../services/orderServices");
 const cart = require("./../viewPublicController/cart");
 // const cartServices = require("../../../services/cartServices");
 const cartServices = require("../../../services/cartServices");
-const e = require("express");
+// const e = require("express");
 var LocalStorage = require("node-localstorage").LocalStorage;
 localStorage = new LocalStorage("./scratch");
 class PublicView {
@@ -12,8 +12,9 @@ class PublicView {
     const products = await productServices.getAllProducts();
     const amount = await new cart().getQuantityInCartById();
     const userId = localStorage.getItem("userId");
+    console.log('userId', userId)
     // console.log("amount", amount);
-
+    
     res.render("public/index", { products, amount, userId });
     // res.send("Trang chủ");
   };

@@ -40,8 +40,9 @@
                   <td><%= i+1 %></td>
                   <td><%= result[i].name %></td>
                   <td style="width:100px ;">
+                    
                     <img
-                      src="./../image/<%= result[i].image %>"
+                      src="data:image/png; base64,<%= result[i].image %>"
                       width="100%"
                     />
                   </td>

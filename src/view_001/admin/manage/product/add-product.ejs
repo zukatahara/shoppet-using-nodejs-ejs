@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Product</title>
-    <link rel="stylesheet" href="./../../../css/all.css">
-    <link rel="stylesheet" href="./../../../css/bootstrap.css">
-    <link rel="stylesheet" href="./../../../css/product-detail.css">
+    <link rel="stylesheet" href="./../../../../css/all.css">
+    <link rel="stylesheet" href="./../../../../css/bootstrap.css">
+    <link rel="stylesheet" href="./../../../../css/product-detail.css">
 </head>
 
 <body>
@@ -35,7 +35,7 @@
                         <input type="file" class="form-control" name="image" onchange="previewImage(event)" />
                     </div>
 
-                    <img id="preview" src="./../../../image/<%= result ?result[0].image:"" %>"
+                    <img id="preview" src="data:image/png; base64,<%= result ?result[0].image:"" %>"
                         height="<%= result ? "90px": "" %>" />
                     <input type="hidden" name="image" value="<%= result ? result[0]["image"]:
                 ""%>">

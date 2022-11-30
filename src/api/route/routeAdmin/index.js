@@ -1,11 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const ManagerAllContent = require("./main");
-const managerUser = require("./main/userRouter");
-const managerProduct = require("./main/productRouter");
+const allContent = require("./manager/index");
+const user = require("./manager/userRouter");
+const product = require("./manager/productRouter");
 module.exports = (app) => {
-  app.use("/admin", ManagerAllContent(router));
-  app.use("/admin", managerProduct(router));
-  app.use("/admin", managerUser(router));
+  //home
+  app.use("/admin", allContent(router));
+  //product
+  app.use("/admin/product", product(router));
+  // user
+  app.use("/admin", user(router));
   // return router;
-}; 
+};

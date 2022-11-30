@@ -52,7 +52,7 @@
                             <% for( let index = 0; index < data.length; index++ ) { %>
                             <div class="box-2">
                                 <div class="row-1 row-same">
-                                    <img src="./../../../image/<%= data[index]["image"] %>" alt="">
+                                    // src="data:image/png; base64,<%= data[index]["image"] %>" alt="">
                                     <p> <%= data[index]["name"] %>
                                     </p>
                                 </div>
@@ -62,11 +62,11 @@
                                 <div class="row-3 row-same">
                                     <div>
                                         <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                            <span class="btn"><%= data[index]["inventory"] %></span>
+                                            <span class="btn"><%= result[0]["products"][index].quantity%></span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row-4 row-same"><span><%= data[index]["price"] * data[index]["inventory"] %>
+                                <div class="row-4 row-same"><span><%= data[index]["price"] * result[0]["products"][index].quantity%> %>
                                     </span> ₫</div>
                                 <div class="row-5 row-same">
                                     <!-- <span>
@@ -75,6 +75,7 @@
                                 </div>
                             </div>
                             <% } %>
+
 
 
 
