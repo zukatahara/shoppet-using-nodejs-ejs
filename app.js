@@ -30,6 +30,6 @@ app.use(route());
 
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`server has started on: http://localhost:${PORT}`);
-  // console.log(localStorage.removeItem("userId"));
+  localStorage.removeItem("userId");
   // console.log(localStorage.getItem("userId"));
 });
